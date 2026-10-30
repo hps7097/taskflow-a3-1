@@ -1,0 +1,25 @@
+{
+  "name": "taskflow-a3",
+  "version": "3.0.0",
+  "description": "TaskFlow A3 - web + Android task tracker with a gRPC identity service (COMP713 Assessment 3)",
+  "private": true,
+  "scripts": {
+    "start": "node scripts/start-all.js",
+    "start:identity": "node identity-service/server.js",
+    "start:api": "node api-service/server.js",
+    "test": "node --test --test-reporter=spec tests/system.test.js",
+    "perf": "node scripts/perf.js",
+    "reset-db": "node scripts/reset-db.js",
+    "seed": "node scripts/seed.js"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.11.1",
+    "@grpc/proto-loader": "^0.7.13",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "ws": "^8.18.0"
+  }
+}

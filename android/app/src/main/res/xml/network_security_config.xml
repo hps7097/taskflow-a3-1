@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The marking setup uses plain HTTP to the API on the same computer.
+     Cleartext is allowed only for these local addresses (see Limitations in the README). -->
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">10.0.2.2</domain>
+        <domain includeSubdomains="false">localhost</domain>
+        <domain includeSubdomains="false">127.0.0.1</domain>
+        <!-- Real phone: add your computer's Wi-Fi address here, e.g. 192.168.1.20 -->
+    </domain-config>
+</network-security-config>

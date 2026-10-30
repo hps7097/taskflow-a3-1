@@ -1,0 +1,55 @@
+// identity.proto
+// Contract between the TaskFlow API service (client) and the Identity service (server).
+// The Identity service owns users and sessions. No other service reads its database;
+// everything goes through these three RPCs.
+
+syntax = "proto3";
+
+package taskflow.identity;
+
+service Identity {
+  // Check a username/password and open a session.
+  rpc Login (LoginRequest) returns (LoginReply);
+
+  // Called by the API on every authenticated request to turn a token into a user.
+  rpc ValidateToken (ValidateTokenRequest) returns (ValidateTokenReply);
+
+  // Users the manager can assign tasks to (and names for the activity feed).
+  rpc ListUsers (ListUsersRequest) returns (ListUsersReply);
+}
+
+message User {
+  int32 id = 1;
+  string username = 2;
+  string display_name = 3;
+  string role = 4; // "manager" or "member"
+}
+
+message LoginRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message LoginReply {
+  bool ok = 1;
+  string token = 2;
+  User user = 3;
+  string error = 4; // set when ok is false
+}
+
+message ValidateTokenRequest {
+  string token = 1;
+}
+
+message ValidateTokenReply {
+  bool valid = 1;
+  User user = 2;
+}
+
+message ListUsersRequest {
+  string role = 1; // optional filter: "member", "manager" or "" for all
+}
+
+message ListUsersReply {
+  repeated User users = 1;
+}

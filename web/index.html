@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TaskFlow</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div class="brand">
+        <h1>TaskFlow</h1>
+        <span class="tagline">Projects and tasks, shared live between the office and the field.</span>
+      </div>
+      <div class="session" id="session" hidden>
+        <span id="live-badge" class="badge offline" title="Live updates connection">offline</span>
+        <span id="whoami"></span>
+        <button id="logout-btn" class="link-btn" type="button">Sign out</button>
+      </div>
+    </header>
+
+    <nav id="nav" class="nav" hidden></nav>
+
+    <div id="banner" class="banner" hidden></div>
+
+    <!-- View 1: sign in -->
+    <section id="view-login" class="view" hidden>
+      <div class="panel narrow">
+        <h2>Sign in</h2>
+        <form id="login-form" class="stack">
+          <label>Username <input id="login-username" autocomplete="username" required></label>
+          <label>Password <input id="login-password" type="password" autocomplete="current-password" required></label>
+          <button type="submit" class="primary">Sign in</button>
+          <p id="login-error" class="error-text" hidden></p>
+        </form>
+        <p class="hint">Test accounts: <code>maya / manager123</code> (manager), <code>sam / member123</code>, <code>priya / member123</code> (members).</p>
+      </div>
+    </section>
+
+    <!-- View 2: projects (manager) -->
+    <section id="view-projects" class="view" hidden>
+      <div class="panel">
+        <div class="panel-heading"><h2>Projects</h2></div>
+        <form id="new-project-form" class="inline-form">
+          <input type="text" id="project-name" placeholder="New project name" maxlength="100">
+          <input type="text" id="project-description" placeholder="Description (optional)">
+          <button type="submit" class="primary">Add project</button>
+        </form>
+        <p id="project-form-error" class="error-text" hidden></p>
+        <ul id="project-list" class="item-list"></ul>
+      </div>
+    </section>
+
+    <!-- View 3: project board (manager, receives live updates) -->
+    <section id="view-board" class="view" hidden>
+      <div class="panel">
+        <div class="panel-heading">
+          <h2 id="board-title">Board</h2>
+          <a href="#/projects" class="link-btn">← All projects</a>
+        </div>
+        <form id="new-task-form" class="inline-form">
+          <input type="text" id="task-title" placeholder="New task title" maxlength="120">
+          <input type="text" id="task-description" placeholder="Description (optional)">
+          <select id="task-assignee"><option value="">Unassigned</option></select>
+          <button type="submit" class="primary">Add task</button>
+        </form>
+        <p id="task-form-error" class="error-text" hidden></p>
+        <div class="board" id="board">
+          <div class="column" data-status="todo"><h3>To do <span class="count"></span></h3><ul></ul></div>
+          <div class="column" data-status="in-progress"><h3>In progress <span class="count"></span></h3><ul></ul></div>
+          <div class="column" data-status="done"><h3>Done <span class="count"></span></h3><ul></ul></div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-heading"><h2>Live activity</h2></div>
+        <ul id="board-activity" class="feed"></ul>
+      </div>
+    </section>
+
+    <!-- View 4: my tasks (member) -->
+    <section id="view-mytasks" class="view" hidden>
+      <div class="panel">
+        <div class="panel-heading">
+          <h2>My tasks</h2>
+          <button id="mytasks-refresh" class="link-btn" type="button">Refresh</button>
+        </div>
+        <ul id="mytask-list" class="item-list"></ul>
+      </div>
+    </section>
+
+    <!-- View 5: activity (manager) -->
+    <section id="view-activity" class="view" hidden>
+      <div class="panel">
+        <div class="panel-heading"><h2>All activity</h2></div>
+        <ul id="activity-list" class="feed"></ul>
+      </div>
+    </section>
+
+    <footer class="app-footer"><span id="status-line">Starting…</span></footer>
+  </div>
+  <div id="toast" class="toast" hidden></div>
+  <script src="app.js"></script>
+</body>
+</html>

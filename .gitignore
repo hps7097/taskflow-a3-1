@@ -1,0 +1,26 @@
+# dependencies
+node_modules/
+
+# local databases (re-created on start)
+*.db
+*.db-wal
+*.db-shm
+
+# environment and secrets
+.env
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+npm-debug.log*
+
+# Android build output and IDE files
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.idea/
+android/*.iml
+android/app/*.iml
+android/captures/

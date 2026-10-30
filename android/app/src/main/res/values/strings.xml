@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">TaskFlow</string>
+    <string name="my_tasks">My tasks</string>
+    <string name="task">Task</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_out">Sign out</string>
+    <string name="refresh">Refresh</string>
+    <string name="server_hint">Server: %1$s</string>
+    <string name="no_tasks">No tasks are assigned to you yet. Pull down or tap Refresh after your manager assigns one.</string>
+    <string name="status">Status</string>
+    <string name="save_status">Save status</string>
+    <string name="check_in_title">Check in</string>
+    <string name="check_in_gps">Check in with my location</string>
+    <string name="place_hint">Or type where you are</string>
+    <string name="check_in_manual">Check in with typed place</string>
+    <string name="recent_checkins">Recent check-ins</string>
+    <string name="no_checkins">No check-ins yet.</string>
+</resources>
