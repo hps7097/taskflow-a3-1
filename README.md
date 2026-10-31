@@ -3,8 +3,8 @@
 COMP713 Distributed and Mobile Systems, Assessment 3.
 Liam Wiggill (ID 23205218), working alone with the teacher's agreement.
 
-- **Repository:** [PUT PUBLIC GITHUB URL HERE]
-- **Final version:** tag `a3-final`, commit [PUT COMMIT HASH HERE]
+- **Repository:** https://github.com/hps7097/taskflow-a3-1)
+- **Final version:** taskflow-a3-1
 - **Starting point:** Liam Wiggill's Assessment 2 TaskFlow (Express + SQLite + browser client). See [docs/BASELINE.md](docs/BASELINE.md) for what was retained, revised and added.
 - **Advanced integration:** Path A (two services and gRPC).
 - **Bonus:** WebSocket live updates and a response-time test.
@@ -81,6 +81,8 @@ The app calls `http://10.0.2.2:3000`, which is your computer as seen from the em
 
 1. Change `BASE_URL` in `android/app/build.gradle.kts` to your computer's address, for example `http://192.168.1.20:3000`.
 2. Add that address as a `<domain>` in `android/app/src/main/res/xml/network_security_config.xml`.
+
+3. there is also an already a completed version of this porcess in the android folderr
 
 ## Ports and environment variables
 
